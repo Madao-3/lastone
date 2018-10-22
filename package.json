@@ -1,9 +1,9 @@
 {
   "name": "lastone",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "author": "Madao <chrishyman256@gmail.com>",
-  "description": "lastone",
+  "description": "Text Game Platform for Bearychat's bots.",
   "dependencies": {
     "express": "^4.16.4",
     "hubot": "^3.1.1",
