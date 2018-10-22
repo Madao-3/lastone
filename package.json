@@ -4,10 +4,16 @@
   "private": true,
   "author": "Madao <chrishyman256@gmail.com>",
   "description": "Text Game Platform for Bearychat's bots.",
+  "scripts": {
+    "migration": "node scripts/run_migration.js"
+  },
   "dependencies": {
     "express": "^4.16.4",
     "hubot": "^3.1.1",
-    "hubot-bearychat": "^0.7.2"
+    "hubot-bearychat": "^0.7.2",
+    "inkjs": "^1.8.0-beta.1",
+    "redis": "^2.8.0",
+    "sqlite3": "^4.0.2"
   },
   "engines": {
     "node": " 0.10.x"
