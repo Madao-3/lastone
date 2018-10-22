@@ -64,3 +64,9 @@ body {
   clear: both;
   content: "";
 }
+
+.footer {
+  margin-top: 50px;
+  color: #999;
+  text-align: center;
+}
