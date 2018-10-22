@@ -1,3 +1,5 @@
+// CREATE Stories table for story model.
+
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
@@ -13,7 +15,9 @@ db.serialize(function() {
       content text NOT NULL,\
       title text NOT NULL,\
       author text NOT NULL,\
-      email text NOT NULL\
+      email text NOT NULL,\
+      state text NOT NULL,\
+      createdAt date NOT NULL\
     );"
   );
 });

@@ -14,7 +14,8 @@ module.exports = (robot) ->
     res.send """
       欢迎来到最后一人：
         最后一人是一个文本游戏/考卷引导平台
-        你可以通过 lastone.madao.me
+        你可以通过 lastone.madao.me [暂未开放]
+        
     """
 
   robot.respond /foo/i, (res) ->
