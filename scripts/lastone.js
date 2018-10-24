@@ -9,9 +9,16 @@ const getAsync = promisify(client.get).bind(client);
 
 const INK = require("./ink");
 
-const token = "2caf981bab9106e6fccdfe6a5797120a";
+const token = "";
 
 const GAME_WHITE_LIST = /最后一人|科目一/;
+const winston = require("winston");
+const logger = winston.createLogger({
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: "info.log" })
+  ]
+});
 
 module.exports = robot => {
   robot.hear(/[0-9]/, async res => {
@@ -27,6 +34,10 @@ module.exports = robot => {
       setState(storyStateKey(userId, storyName), state);
     });
     responseData.message = res.message;
+    logger.log({
+      level: "info",
+      message: `${userId}-${storyName}:${JSON.stringify(responseData)}`
+    });
     robot.emit("bearychat.attachment", responseData);
   });
 
@@ -39,6 +50,10 @@ module.exports = robot => {
     client.set(`${userId}-playing`, storyName);
     console.log(userState);
     let responseData = ink.formattedPathContent();
+    logger.log({
+      level: "info",
+      message: `${userId}-${storyName}:${JSON.stringify(responseData)}`
+    });
     responseData.message = res.message;
     robot.emit("bearychat.attachment", responseData);
   });
@@ -49,6 +64,7 @@ module.exports = robot => {
     现阶段LastOne 只有一款游戏和一套Demo 试题，\n
     回复【最后一人】选择进入文字游戏《最后一人》的第一章 \n
     回复【科目一】可以尝试INK 实现的考卷引导系统`);
+    logger.log({ level: "info", message: `${user.name}-选择` });
   });
 
   robot.hear(/重新开始|结束游戏/, async res => {
@@ -59,6 +75,10 @@ module.exports = robot => {
     现阶段LastOne 只有一款游戏和一套Demo 试题，\n
     回复【最后一人】选择进入文字游戏《最后一人》的第一章 \n
     回复【科目一】可以尝试INK 实现的考卷引导系统`);
+    logger.log({
+      level: "info",
+      message: `${user.name}-重新开始|结束游戏`
+    });
   });
 
   robot.hear(/help/i, function(res) {
@@ -69,6 +89,7 @@ module.exports = robot => {
         回复【开始】继续最近一次的游戏 \n
         回复【重新开始】结束游戏进入游戏选择页面 \n
         回复【结束游戏】结束游戏`);
+    logger.log({ level: "info", message: `help` });
   });
 };
 
