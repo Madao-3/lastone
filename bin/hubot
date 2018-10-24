@@ -6,7 +6,7 @@ set -e
 
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 
-export HUBOT_BEARYCHAT_TOKENS=e2bc91d382c752d5dc0e62d4c39bea81
+export HUBOT_BEARYCHAT_TOKENS=2caf981bab9106e6fccdfe6a5797120a
 
 export HUBOT_BEARYCHAT_MODE=rtm
 

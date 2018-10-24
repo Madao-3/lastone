@@ -9,7 +9,7 @@ const getAsync = promisify(client.get).bind(client);
 
 const INK = require("./ink");
 
-const token = "e2bc91d382c752d5dc0e62d4c39bea81";
+const token = "2caf981bab9106e6fccdfe6a5797120a";
 
 const GAME_WHITE_LIST = /最后一人|科目一/;
 
